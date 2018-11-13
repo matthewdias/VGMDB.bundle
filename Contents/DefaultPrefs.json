@@ -1,0 +1,14 @@
+[
+  {
+    "id": "language",
+    "label": "Language Preference",
+    "type": "enum",
+    "values": ["English", "Japanese", "Romanized Japanese", "Original"],
+    "default": "English"
+  },
+  {
+    "id": "token",
+    "label": "Plex Token (Required for multi-disk support. See: https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)",
+    "type": "text"
+  }
+]
