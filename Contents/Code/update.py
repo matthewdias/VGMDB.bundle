@@ -27,7 +27,7 @@ def update_album(metadata, media, force):
             lang = 'en'
         metadata.collections = map(lambda p: p['names'][lang], result['products'])
 
-    if metadata.rating is None or force:
+    if (metadata.rating is None or force) and 'rating' in result:
         metadata.rating = float(result['rating'])
 
     if metadata.original_title is None or force:
@@ -49,7 +49,7 @@ def update_album(metadata, media, force):
             lang = 'en'
         metadata.studio = result['publisher']['names'][lang]
 
-    if metadata.originally_available_at is None or force:
+    if (metadata.originally_available_at is None or force) and 'release_date' in result:
         split = map(lambda s: int(s), result['release_date'].split('-'))
         release_date = datetime(split[0], split[1], split[2])
         metadata.originally_available_at = release_date
